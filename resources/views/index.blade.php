@@ -29,6 +29,7 @@
     </div> <!-- end filters -->
 
     <div class="my-6 space-y-6 ideas-container">
+
         <div class="flex transition duration-150 ease-in bg-white cursor-pointer idea-container rounded-xl hover:shadow-card">
             <div class="px-5 py-8 border-r border-gray-100">
                 <div class="text-center">
@@ -42,18 +43,20 @@
                     </button>
                 </div>
             </div>
-            <div class="flex px-2 py-6">
-                <a href="#" class="flex-none">
-                    <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="w-14 h-14 rounded-xl">
-                </a>
+            <div class="flex flex-1 px-2 py-6">
+                <div class="flex-none">
+                    <a href="#">
+                        <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="w-14 h-14 rounded-xl">
+                    </a>
+                </div>
 
-                <div class="mx-4">
+                <div class="w-full mx-4">
                     <a href="#">
                         <h4 class="text-xl font-semibold hover:underline">A random title</h4>
                     </a>
 
                     <div class="mt-3 text-gray-600 line-clamp-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo iusto soluta culpa omnis rem tenetur dignissimos reprehenderit voluptates tempore cupiditate nobis libero maxime, velit maiores mollitia voluptatibus recusandae molestias nulla similique? Animi sequi veritatis obcaecati quaerat eos delectus unde. Id dicta temporibus, quam, voluptas suscipit architecto, dignissimos repellendus et minus optio iure cumque accusamus illo similique facere. Atque fugit unde sed, expedita tempore est quae porro, soluta veritatis quo doloremque voluptate sapiente molestiae! Obcaecati amet ex aliquid iste eos deserunt alias minima consequuntur! Dicta mollitia dolor dignissimos laborum. Quibusdam assumenda aliquid cum unde omnis fuga similique aspernatur ut velit repellendus!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </div>
 
                     <div class="flex items-center justify-between mt-6">
@@ -67,7 +70,7 @@
                         <div class="flex items-center space-x-2">
                             <div class="px-4 py-2 font-bold leading-none text-center uppercase bg-gray-200 rounded-full text-xxs w-28 h-7">Open</div>
 
-                            <button class="relative px-3 py-2 transition duration-150 ease-in bg-gray-100 rounded-full hover:bg-gray-200 h-7">
+                            <button class="relative px-3 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">
                                 <svg 
                                     fill="currentColor" 
                                     width="24" 
@@ -86,6 +89,7 @@
                 </div>
             </div>
         </div> <!-- end idea container -->
+
         <div class="flex transition duration-150 ease-in bg-white cursor-pointer idea-container hover:shadow-card rounded-xl">
             <div class="px-5 py-8 border-r border-gray-100">
                 <div class="text-center">
@@ -131,6 +135,7 @@
                 </div>
             </div>
         </div> <!-- end idea-container -->
+
         <div class="flex transition duration-150 ease-in bg-white cursor-pointer idea-container hover:shadow-card rounded-xl">
             <div class="px-5 py-8 border-r border-gray-100">
                 <div class="text-center">
@@ -176,6 +181,7 @@
                 </div>
             </div>
         </div> <!-- end idea-container -->
+
         <div class="flex transition duration-150 ease-in bg-white cursor-pointer idea-container hover:shadow-card rounded-xl">
             <div class="px-5 py-8 border-r border-gray-100">
                 <div class="text-center">
@@ -189,7 +195,10 @@
             </div>
             <div class="flex px-2 py-6">
                 <a href="#" class="flex-none">
-                    <img src="https://source.unsplash.com/200x200/?face&crop=face&v=4" alt="avatar" class="w-14 h-14 rounded-xl">
+                    <img 
+                        src="https://source.unsplash.com/200x200/?face&crop=face&v=4" 
+                        alt="avatar" 
+                        class="w-14 h-14 rounded-xl">
                 </a>
                 <div class="mx-4">
                     <h4 class="text-xl font-semibold">
@@ -221,6 +230,7 @@
                 </div>
             </div>
         </div> <!-- end idea-container -->
+
         <div class="flex transition duration-150 ease-in bg-white cursor-pointer idea-container hover:shadow-card rounded-xl">
             <div class="px-5 py-8 border-r border-gray-100">
                 <div class="text-center">
@@ -266,5 +276,6 @@
                 </div>
             </div>
         </div> <!-- end idea-container -->
+
     </div> <!-- end ideas-container -->
 </x-app-layout>
