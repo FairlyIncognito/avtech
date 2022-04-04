@@ -1408,6 +1408,35 @@ select {
 [x-cloak] {
     display: none !important;
 }
+/* Styling for the status button on the ideas */
+.status-open {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+.status-considering {
+  --tw-bg-opacity: 1;
+  background-color: rgb(139 96 237 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.status-in-progress {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 199 60 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.status-implemented {
+  --tw-bg-opacity: 1;
+  background-color: rgb(26 171 139 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.status-closed {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 69 79 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 /* Vertical line to the left of the comments */
 .comments-container::before {
     position: absolute;
@@ -1867,5 +1896,4 @@ select {
     padding-right: 2rem;
   }
 }
-
 
