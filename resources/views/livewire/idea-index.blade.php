@@ -1,13 +1,14 @@
-<!-- 
-    Using Alpine.js below, @click listens for click event and returns the tagname in lower case, unless tag is found in the array.
-    If tag is not in array, redirect click to .idea-link class in .idea-container div.
--->
 <div 
     x-data
     @click="!['button','svg','path','a'].includes($event.target.tagName.toLowerCase()) 
     && $event.target.closest('.idea-container').querySelector('.idea-link').click()"
     
-    class="flex transition duration-150 ease-in bg-white cursor-pointer idea-container hover:shadow-card rounded-xl">
+    class="flex transition duration-150 ease-in bg-white cursor-pointer idea-container hover:shadow-card rounded-xl"
+>
+<!-- 
+    Using Alpine.js above, @click listens for click event and returns the tagname in lower case, unless tag is found in the array.
+    If tag is not in array, redirect click to .idea-link class in .idea-container div.
+-->
     
     <div class="hidden px-5 py-8 border-r border-gray-100 md:block">
         <div class="text-center">
@@ -17,15 +18,19 @@
 
         <div class="mt-8">
             @if ($hasVoted)
-                <button class="w-20 px-4 py-3 font-bold text-white uppercase transition duration-150 ease-in border border-blue0 bg-blue hover:bg-blue-hover text-xxs rounded-xl"
+                <button 
+                    wire:click.prevent='vote'
+                    class="w-20 px-4 py-3 font-bold text-white uppercase transition duration-150 ease-in border border-blue0 bg-blue hover:bg-blue-hover text-xxs rounded-xl"
                 >
-                Voted
+                    Voted
             </button>
             @else
-            <button class="w-20 px-4 py-3 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 hover:border-gray-400 text-xxs rounded-xl"
-            >
-                Vote
-            </button>
+                <button 
+                    wire:click.prevent='vote'
+                    class="w-20 px-4 py-3 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 hover:border-gray-400 text-xxs rounded-xl"
+                >
+                    Vote
+                </button>
             @endif
         </div>
     </div>
@@ -82,12 +87,14 @@
                     </div>
                     @if ($hasVoted)
                         <button
-                        class="w-20 px-4 py-3 -mx-5 font-bold text-white uppercase transition duration-150 ease-in border border-blue bg-blue text-xxs rounded-xl hover:bg-blue-hover"
+                            wire:click.prevent='vote'
+                            class="w-20 px-4 py-3 -mx-5 font-bold text-white uppercase transition duration-150 ease-in border border-blue bg-blue text-xxs rounded-xl hover:bg-blue-hover"
                         >
                             Voted
                         </button>
                     @else
                         <button
+                            wire:click.prevent='vote'
                             class="w-20 px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400"
                         >
                             Vote
@@ -97,4 +104,4 @@
             </div>
         </div>
     </div>
-</div> <!-- end idea-container -->
+</div>
