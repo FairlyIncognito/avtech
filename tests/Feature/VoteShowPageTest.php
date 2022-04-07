@@ -231,13 +231,12 @@ class VoteShowPageTest extends TestCase
             'user_id' => $user->id,
         ]);
 
-        $response = $this->actingAs($user)->get(route('idea.index'));
-
-        $ideaWithVotes = $response['ideas']->items()[0];
+        $idea->votes_count = 1;
+        $idea->voted_by_user = 1;
 
         Livewire::actingAs($user)
             ->test(IdeaShow::class, [
-                'idea' => $ideaWithVotes,
+                'idea' => $idea,
                 'votesCount' => 5,
             ])
             ->call('vote')
