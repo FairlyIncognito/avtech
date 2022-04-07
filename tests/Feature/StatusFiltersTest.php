@@ -9,6 +9,7 @@ use App\Models\Status;
 use Livewire\Livewire;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use App\Http\Livewire\IdeasIndex;
 use App\Http\Livewire\StatusFilters;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -108,10 +109,12 @@ class StatusFiltersTest extends TestCase
                 ->count($count)
                 ->create();
         }
-        
-        $response = $this->get(route('idea.index', ['status.name' => 'In Progress']));
-        $response->assertSuccessful();
-        $response->assertSee('>In Progress</div>', false);
-        $response->assertDontSee('>In Progress</div>', true);
+
+        Livewire::withQueryParams(['status' => 'In Progress'])
+            ->test(IdeasIndex::class)
+            ->assertViewHas('ideas', function($ideas) {
+                return $ideas->count() === 3
+                    && $ideas->first()->status->name === 'In Progress';
+            });
     }
 }
