@@ -58,4 +58,11 @@ class User extends Authenticatable
             .'?s=200'
             .'&d=retro';
     }
+
+    public function isAdmin() {
+        return in_array($this->email, [
+            'mickeybrasmussen@gmail.com',
+            'admin@avtech.com',
+        ]);
+    }
 }
