@@ -27,4 +27,21 @@ class UserTest extends TestCase
                     $gravatarURL
         );
     }
+
+
+    /** @test */
+    public function can_check_if_user_is_an_admin() {
+        $user = User::factory()->make([
+            'name' => 'Mickey Berg',
+            'email' => 'mickeybrasmussen@gmail.com',
+        ]);
+
+        $userB = User::factory()->make([
+            'name' => 'JohnDoe',
+            'email' => 'user@user.com',
+        ]);
+
+        $this->assertTrue($user->isAdmin());
+        $this->assertFalse($userB->isAdmin());
+    }
 }
