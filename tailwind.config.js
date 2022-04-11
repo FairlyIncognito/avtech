@@ -45,6 +45,9 @@ module.exports = {
                 xxs: ["0.625rem", { lineHeight: "1rem" }],
             },
         },
+        variants: {
+            opacity: ({ after }) => after(["disabled"]),
+        },
     },
 
     plugins: [
