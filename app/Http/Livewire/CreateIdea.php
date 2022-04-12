@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Idea;
+use App\Models\Vote;
 use Livewire\Component;
 use App\Models\Category;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,17 +23,21 @@ class CreateIdea extends Component
     public function createIdea() {
         $this->validate();
         
-        if(auth()->check()) {
-            Idea::create([
-                'user_id' => auth()->id(),
-                'category_id' => $this->category,
-                'status_id' => 1,
-                'title' => $this->title,
-                'description' => $this->description
-            ]);
-        } else {
+        if(auth()->guest()) {
             abort(Response::HTTP_FORBIDDEN);
         }
+
+        $this->validate();
+        
+        $idea = Idea::create([
+            'user_id' => auth()->id(),
+            'category_id' => $this->category,
+            'status_id' => 1,
+            'title' => $this->title,
+            'description' => $this->description
+        ]);
+        
+        $idea->vote(auth()->user());
 
         session()->flash('success_message', 'Idea was added succcessfully.');
         $this->reset();

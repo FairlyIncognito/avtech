@@ -26,7 +26,7 @@ class IdeaController extends Controller
      */
     public function create()
     {
-        //
+        return view('idea.create');
     }
 
     /**

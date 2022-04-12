@@ -38,11 +38,11 @@ class CreateIdeaTest extends TestCase
 
 
     /** @test */
-    public function main_page_contains_create_idea_livewire_component()
+    public function create_page_contains_create_idea_livewire_component()
     {
         // error is false
         $this->actingAs(User::factory()->create())
-            ->get(route('idea.index'))
+            ->get(route('idea.create'))
             ->assertSeeLivewire('create-idea');
     }
 
@@ -61,68 +61,71 @@ class CreateIdeaTest extends TestCase
 
 
     /** @test */
-    public function creating_an_idea_works_correctly() {
+    public function creating_an_idea_works_correctly()
+    {
         $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
 
         $statusOpen = Status::factory()->create(['name' => 'Open']);
 
         Livewire::actingAs($user)
             ->test(CreateIdea::class)
-            ->set('title', 'My first idea')
+            ->set('title', 'My First Idea')
             ->set('category', $categoryOne->id)
-            ->set('description', 'This is my first idea.')
+            ->set('description', 'This is my first idea')
             ->call('createIdea')
             ->assertRedirect('/');
-    
-            // error is false
-            $response = $this->actingAs($user)->get(route('idea.index'));
-            $response->assertSuccessful();
-            $response->assertSee('My first idea');
-            $response->assertSee('This is my first idea.');
 
-            $this->assertDatabaseHas('ideas', [
-                'title' => 'My first idea',
-                'description' => 'This is my first idea.'
-            ]);
+        $response = $this->actingAs($user)->get(route('idea.index'));
+        $response->assertSuccessful();
+        $response->assertSee('My First Idea');
+        $response->assertSee('This is my first idea');
+
+        $this->assertDatabaseHas('ideas', [
+            'title' => 'My First Idea'
+        ]);
+
+        $this->assertDatabaseHas('votes', [
+            'idea_id' => 1,
+            'user_id' => 1,
+        ]);
     }
 
 
     /** @test */
-    public function creating_two_ideas_with_the_same_title_still_works_but_has_different_slugs() {
+    public function creating_two_ideas_with_same_title_still_works_but_has_different_slugs()
+    {
         $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
 
         $statusOpen = Status::factory()->create(['name' => 'Open']);
 
         Livewire::actingAs($user)
             ->test(CreateIdea::class)
-            ->set('title', 'My first idea')
+            ->set('title', 'My First Idea')
             ->set('category', $categoryOne->id)
-            ->set('description', 'This is my first idea.')
+            ->set('description', 'This is my first idea')
             ->call('createIdea')
             ->assertRedirect('/');
 
-            $this->assertDatabaseHas('ideas', [
-                'title' => 'My first idea',
-                'slug' => 'my-first-idea'
-            ]);
+        $this->assertDatabaseHas('ideas', [
+            'title' => 'My First Idea',
+            'slug' => 'my-first-idea'
+        ]);
 
-            Livewire::actingAs($user)
+        Livewire::actingAs($user)
             ->test(CreateIdea::class)
-            ->set('title', 'My first idea')
+            ->set('title', 'My First Idea')
             ->set('category', $categoryOne->id)
-            ->set('description', 'This is my first idea.')
+            ->set('description', 'This is my first idea')
             ->call('createIdea')
             ->assertRedirect('/');
 
-            $this->assertDatabaseHas('ideas', [
-                'title' => 'My first idea',
-                'slug' => 'my-first-idea-2'
-            ]);
+        $this->assertDatabaseHas('ideas', [
+            'title' => 'My First Idea',
+            'slug' => 'my-first-idea-2'
+        ]);
     }
 }

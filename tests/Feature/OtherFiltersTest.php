@@ -18,52 +18,33 @@ class OtherFiltersTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function top_voted_filter_works() {
+    public function top_voted_filter_works()
+    {
         $user = User::factory()->create();
         $userB = User::factory()->create();
         $userC = User::factory()->create();
-        
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
 
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
-        $ideaOne = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea',
-        ]);
-
-        $ideaTwo = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Another Description for my first idea',
-        ]);
+        $ideaOne = Idea::factory()->create();
+        $ideaTwo = Idea::factory()->create();
 
         Vote::factory()->create([
             'idea_id' => $ideaOne->id,
             'user_id' => $user->id,
-            
         ]);
 
         Vote::factory()->create([
             'idea_id' => $ideaOne->id,
             'user_id' => $userB->id,
-            
         ]);
 
         Vote::factory()->create([
             'idea_id' => $ideaTwo->id,
             'user_id' => $userC->id,
-            
         ]);
 
         Livewire::test(IdeasIndex::class)
             ->set('filter', 'Top Voted')
-            ->assertViewHas('ideas', function($ideas) {
+            ->assertViewHas('ideas', function ($ideas) {
                 return $ideas->count() === 2
                     && $ideas->first()->votes()->count() === 2
                     && $ideas->get(1)->votes()->count() === 1;
@@ -73,36 +54,24 @@ class OtherFiltersTest extends TestCase
 
 
     /** @test */
-    public function my_ideas_filter_works_correctly_when_user_logged_in() {
+    public function my_ideas_filter_works_correctly_when_user_logged_in()
+    {
         $user = User::factory()->create();
         $userB = User::factory()->create();
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
         $ideaOne = Idea::factory()->create([
             'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My First Idea',
-            'description' => 'Description for my first idea',
         ]);
 
         $ideaTwo = Idea::factory()->create([
             'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My Second Idea',
-            'description' => 'Description for my first idea',
         ]);
 
         $ideaThree = Idea::factory()->create([
             'user_id' => $userB->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My Third Idea',
-            'description' => 'Description for my first idea',
         ]);
 
         Livewire::actingAs($user)
@@ -125,30 +94,22 @@ class OtherFiltersTest extends TestCase
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
         $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
 
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
         $ideaOne = Idea::factory()->create([
             'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My First Idea',
-            'description' => 'Description for my first idea',
         ]);
 
         $ideaTwo = Idea::factory()->create([
             'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My Second Idea',
-            'description' => 'Description for my first idea',
         ]);
 
         $ideaThree = Idea::factory()->create([
             'user_id' => $user->id,
             'category_id' => $categoryTwo->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My Third Idea',
-            'description' => 'Description for my first idea',
         ]);
 
         Livewire::actingAs($user)
@@ -164,38 +125,24 @@ class OtherFiltersTest extends TestCase
 
 
 
-
     /** @test */
     public function no_filters_works_correctly()
     {
-        $user = User::factory()->create();
-
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
 
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
         $ideaOne = Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My First Idea',
-            'description' => 'Description for my first idea',
         ]);
 
         $ideaTwo = Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My Second Idea',
-            'description' => 'Description for my first idea',
         ]);
 
         $ideaThree = Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My Third Idea',
-            'description' => 'Description for my first idea',
         ]);
 
         Livewire::test(IdeasIndex::class)
