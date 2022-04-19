@@ -5,7 +5,16 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'All') border-blue text-gray-900 @endif"
             >
-                All Ideas ({{ $statusCount['all_statuses'] }})
+                Alle ({{ $statusCount['all_statuses'] }})
+            </a>
+        </li>
+
+        <li>
+            <a wire:click.prevent='setStatus("Open")' href="{{ route('idea.index', ['status' => 'Open']) }}" 
+                class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
+                @if($status === 'Open') border-blue text-gray-900 @endif"
+            >
+                Åbne ({{ $statusCount['open'] }})
             </a>
         </li>
         
@@ -14,7 +23,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'Considering') border-blue text-gray-900 @endif"
             >
-                Considering ({{ $statusCount['considering'] }})
+                Overvejer ({{ $statusCount['considering'] }})
             </a>
         </li>
         
@@ -23,7 +32,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'In Progress') border-blue text-gray-900 @endif"
             >
-                In Progress ({{ $statusCount['in_progress'] }})
+                Igangværende ({{ $statusCount['in_progress'] }})
             </a>
         </li>
     </ul>
@@ -34,7 +43,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'Implemented') border-blue text-gray-900 @endif"
             >
-                Implemented ({{ $statusCount['implemented'] }})
+                Implementeret ({{ $statusCount['implemented'] }})
             </a>
         </li>
 
@@ -43,7 +52,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'Closed') border-blue text-gray-900 @endif"
             >
-                Closed ({{ $statusCount['closed'] }})
+                Lukket ({{ $statusCount['closed'] }})
             </a>
         </li>
     </ul>

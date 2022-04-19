@@ -17,7 +17,8 @@ class CreateIdeaTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function create_idea_form_does_not_show_when_logged_out() {
+    public function create_idea_form_does_not_show_when_logged_out() 
+    {
         $response = $this->get(route('idea.index'));
 
         $response->assertSuccessful();
@@ -26,10 +27,11 @@ class CreateIdeaTest extends TestCase
     }
 
 
+
     /** @test */
-    public function create_idea_form_does_not_show_when_logged_in() {
-        // error is false
-        $response = $this->actingAs(User::factory()->create())->get(route('idea.index'));
+    public function create_idea_form_does_not_show_when_logged_in()
+    {
+        $response = $this->actingAs(User::factory()->create())->get(route('idea.index')); // error is false
 
         $response->assertSuccessful();
         $response->assertDontSee('Please log in to create an idea.');
@@ -37,18 +39,20 @@ class CreateIdeaTest extends TestCase
     }
 
 
+    
     /** @test */
     public function create_page_contains_create_idea_livewire_component()
     {
-        // error is false
-        $this->actingAs(User::factory()->create())
+        $this->actingAs(User::factory()->create()) // error is false
             ->get(route('idea.create'))
             ->assertSeeLivewire('create-idea');
     }
 
+    
 
     /** @test */
-    public function create_idea_form_validation_works() {
+    public function create_idea_form_validation_works() 
+    {
         Livewire::actingAs(User::factory()->create())
             ->test(CreateIdea::class)
             ->set('title', '')
@@ -60,6 +64,7 @@ class CreateIdeaTest extends TestCase
     }
 
 
+    
     /** @test */
     public function creating_an_idea_works_correctly()
     {
@@ -76,8 +81,8 @@ class CreateIdeaTest extends TestCase
             ->set('description', 'This is my first idea')
             ->call('createIdea')
             ->assertRedirect('/');
-
-        $response = $this->actingAs($user)->get(route('idea.index'));
+        
+        $response = $this->actingAs($user)->get(route('idea.index')); // error is false
         $response->assertSuccessful();
         $response->assertSee('My First Idea');
         $response->assertSee('This is my first idea');
@@ -93,6 +98,7 @@ class CreateIdeaTest extends TestCase
     }
 
 
+    
     /** @test */
     public function creating_two_ideas_with_same_title_still_works_but_has_different_slugs()
     {

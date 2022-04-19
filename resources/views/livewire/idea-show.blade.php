@@ -1,10 +1,13 @@
 <div class="container idea-and-buttons">
     <div class="flex mt-4 bg-white idea-container rounded-xl">
+        
         <div class="flex flex-col flex-1 px-4 py-6 md:flex-row">
             <div class="flex-none mx-2">
                 <a href="#">
                     <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
                 </a>
+
+                <div class="hidden font-bold text-gray-900 md:block mt-6">{{ $idea->user->name }}</div>
             </div>
             <div class="w-full mx-2 md:mx-4">
                 <h4 class="mt-2 text-xl font-semibold md:mt-0">
@@ -16,13 +19,13 @@
 
                 <div class="flex flex-col justify-between mt-6 md:flex-row md:items-center">
                     <div class="flex items-center space-x-2 text-xs font-semibold text-gray-400">
-                        <div class="hidden font-bold text-gray-900 md:block">{{ $idea->user->name }}</div>
-                        <div class="hidden md:block">&bull;</div>
-                        <div>{{ $idea->created_at->diffForHumans() }}</div>
-                        <div>&bull;</div>
+                        <div class="hidden md:block"></div>
                         <div>{{ $idea->category->name }}</div>
                         <div>&bull;</div>
-                        <div class="text-gray-900">3 Comments</div>
+                        <div>{{ $idea->created_at->diffForHumans() }}</div>
+                        
+                        
+                        
                     </div>
                     <div
                         class="flex items-center mt-4 space-x-2 md:mt-0"
@@ -41,34 +44,16 @@
                                 @click.away="isOpen = false"
                                 @keydown.escape.window="isOpen = false"
                             >
-                                <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Mark as Spam</a></li>
-                                <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Delete Post</a></li>
+                                <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Marker Spam</a></li>
+                                <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Slet Post</a></li>
                             </ul>
                         </button>
                     </div>
 
                     <div class="flex items-center mt-4 md:hidden md:mt-0">
                         <div class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl">
-                            <div class="text-sm font-bold leading-none @if($hasVoted) text-blue @endif">{{ $votesCount }}</div>
-                            <div class="font-semibold leading-none text-gray-400 text-xxs">Votes</div>
+                            
                         </div>
-
-                        @if ($hasVoted)
-                            <button
-                                wire:click.prevent='vote'
-                                class="w-20 px-4 py-3 -mx-5 font-bold text-white uppercase transition duration-150 ease-in border border-blue bg-blue text-xxs rounded-xl hover:bg-blue-hover"
-                            >
-                                Voted
-                            </button>
-                        @else
-                            <button
-                                wire:click.prevent='vote'
-                                class="w-20 px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400"
-                            >
-                                Vote
-                            </button>
-                        @endif
-                        
                     </div>
                 </div>
             </div>
@@ -86,7 +71,7 @@
                     @click="isOpen = !isOpen"
                     class="flex items-center justify-center w-32 px-6 py-3 text-sm font-semibold text-white transition duration-150 ease-in border h-11 bg-blue rounded-xl border-blue hover:bg-blue-hover"
                 >
-                    Reply
+                    Svar
                 </button>
                 <div
                     class="absolute z-10 w-64 mt-2 text-sm font-semibold text-left bg-white md:w-104 shadow-dialog rounded-xl"
@@ -101,12 +86,12 @@
                         </div>
 
                         <div class="flex flex-col items-center md:flex-row md:space-x-3">
-                            <button
+                            {{-- <button
                                 type="button"
                                 class="flex items-center justify-center w-full px-6 py-3 text-sm font-semibold text-white transition duration-150 ease-in border h-11 md:w-1/2 bg-blue rounded-xl border-blue hover:bg-blue-hover"
                             >
                                 Post Comment
-                            </button>
+                            </button> --}}
                             <button
                                 type="button"
                                 class="flex items-center justify-center w-full px-6 py-3 mt-2 text-xs font-semibold transition duration-150 ease-in bg-gray-200 border border-gray-200 md:w-32 h-11 rounded-xl hover:border-gray-400 md:mt-0"
@@ -114,7 +99,7 @@
                                 <svg class="w-4 text-gray-600 transform -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                                 </svg>
-                                <span class="ml-1">Attach</span>
+                                <span class="ml-1">Vedhæft</span>
                             </button>
                         </div>
 
@@ -131,10 +116,9 @@
 
         <div class="items-center hidden space-x-3 md:flex">
             <div class="px-3 py-2 font-semibold text-center bg-white rounded-xl">
-                <div class="text-xl leading-snug @if($hasVoted) text-blue @endif">{{ $votesCount }}</div>
-                <div class="text-xs leading-none text-gray-400">Votes</div>
+                
             </div>
-            @if ($hasVoted)
+            {{-- @if ($hasVoted)
                 <button
                     type="button"
                     wire:click.prevent='vote'
@@ -150,7 +134,7 @@
                 >
                     <span>Vote</span>
                 </button>
-            @endif
+            @endif --}}
         </div>
     </div> <!-- end buttons-container -->
 </div> <!-- end idea and buttons container -->

@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IdeaController::class, 'index'])->name('idea.index');
-Route::get('/ideas/{idea:slug}', [IdeaController::class, 'show'])->name('idea.show');
-Route::get('/create', [IdeaController::class, 'create'])->name('idea.create');
+
+Route::get('/work', [WorkController::class, 'index'])->name('work.index');
+Route::get('/work/{work:slug}', [WorkController::class, 'show'])->name('work.show');
+Route::get('/work/create', [WorkController::class, 'create'])->name('work.create');
+
+Route::get('/profile/{idea:slug}', [IdeaController::class, 'show'])->name('idea.show');
+Route::get('/profile', [IdeaController::class, 'create'])->name('idea.create');
 
 require __DIR__.'/auth.php';

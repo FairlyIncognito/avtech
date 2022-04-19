@@ -27,16 +27,18 @@ class DatabaseSeeder extends Seeder
 
         User::factory(19)->create();
 
-        Category::factory()->create(['name' => 'Category 1']);
-        Category::factory()->create(['name' => 'Category 2']);
-        Category::factory()->create(['name' => 'Category 3']);
-        Category::factory()->create(['name' => 'Category 4']);
+        Category::factory()->create(['name' => 'AV']);
+        Category::factory()->create(['name' => 'Chauffør']);
+        Category::factory()->create(['name' => 'Crew']);
+        Category::factory()->create(['name' => 'Lyd']);
+        Category::factory()->create(['name' => 'Lys']);
+        Category::factory()->create(['name' => 'Scene']);
 
-        Status::factory()->create(['name' => 'Open']);
-        Status::factory()->create(['name' => 'Considering']);
-        Status::factory()->create(['name' => 'In Progress']);
-        Status::factory()->create(['name' => 'Implemented']);
-        Status::factory()->create(['name' => 'Closed']);
+        Status::factory()->create(['name' => 'Åben']);
+        Status::factory()->create(['name' => 'Overvejer']);
+        Status::factory()->create(['name' => 'Igangværende']);
+        Status::factory()->create(['name' => 'Implementeret']);
+        Status::factory()->create(['name' => 'Lukket']);
 
         Idea::factory(100)->existing()->create();
 
