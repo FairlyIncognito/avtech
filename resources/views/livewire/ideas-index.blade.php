@@ -34,7 +34,6 @@
             <livewire:idea-index
                 :key="$idea->id"
                 :idea="$idea"
-                :votesCount="$idea->votes_count"
             />   
         @empty
             <div class="mx-auto mt-12 w-70">
@@ -46,7 +45,6 @@
 
     <!-- Laravel simplePagination links -->
     <div class="my-8">
-        {{-- {{ $ideas->links() }} --}}
         {{ $ideas->appends(request()->query())->links() }}
     </div>
 </div>

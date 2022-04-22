@@ -13,7 +13,6 @@
     </div>
 
     <livewire:idea-show 
-        :idea="$idea" 
-        :votesCount="$votesCount" 
+        :idea="$idea"
     />
 </x-app-layout>

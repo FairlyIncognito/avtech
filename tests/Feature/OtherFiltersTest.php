@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\Idea;
 use App\Models\User;
-use App\Models\Vote;
 use App\Models\Status;
 use Livewire\Livewire;
 use App\Models\Category;
@@ -16,42 +15,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class OtherFiltersTest extends TestCase
 {
     use RefreshDatabase;
-
-    /** @test */
-    public function top_voted_filter_works()
-    {
-        $user = User::factory()->create();
-        $userB = User::factory()->create();
-        $userC = User::factory()->create();
-
-        $ideaOne = Idea::factory()->create();
-        $ideaTwo = Idea::factory()->create();
-
-        Vote::factory()->create([
-            'idea_id' => $ideaOne->id,
-            'user_id' => $user->id,
-        ]);
-
-        Vote::factory()->create([
-            'idea_id' => $ideaOne->id,
-            'user_id' => $userB->id,
-        ]);
-
-        Vote::factory()->create([
-            'idea_id' => $ideaTwo->id,
-            'user_id' => $userC->id,
-        ]);
-
-        Livewire::test(IdeasIndex::class)
-            ->set('filter', 'Top Voted')
-            ->assertViewHas('ideas', function ($ideas) {
-                return $ideas->count() === 2
-                    && $ideas->first()->votes()->count() === 2
-                    && $ideas->get(1)->votes()->count() === 1;
-            });
-    }
-
-
 
     /** @test */
     public function my_ideas_filter_works_correctly_when_user_logged_in()

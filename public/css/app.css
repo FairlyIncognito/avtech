@@ -689,10 +689,6 @@ select {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
 }
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -723,6 +719,9 @@ select {
 .ml-1 {
   margin-left: 0.25rem;
 }
+.ml-4 {
+  margin-left: 1rem;
+}
 .mt-8 {
   margin-top: 2rem;
 }
@@ -732,9 +731,6 @@ select {
 .mr-2 {
   margin-right: 0.5rem;
 }
-.ml-4 {
-  margin-left: 1rem;
-}
 .ml-12 {
   margin-left: 3rem;
 }
@@ -743,12 +739,6 @@ select {
 }
 .mt-12 {
   margin-top: 3rem;
-}
-.ml-8 {
-  margin-left: 2rem;
-}
-.-mr-2 {
-  margin-right: -0.5rem;
 }
 .block {
   display: block;
@@ -801,9 +791,6 @@ select {
 .h-full {
   height: 100%;
 }
-.h-6 {
-  height: 1.5rem;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -840,23 +827,20 @@ select {
 .w-1\/2 {
   width: 50%;
 }
+.w-10 {
+  width: 2.5rem;
+}
 .w-8 {
   width: 2rem;
 }
 .w-auto {
   width: auto;
 }
-.w-10 {
-  width: 2.5rem;
-}
 .w-70 {
   width: 17.5rem;
 }
 .w-48 {
   width: 12rem;
-}
-.w-6 {
-  width: 1.5rem;
 }
 .max-w-6xl {
   max-width: 72rem;
@@ -867,17 +851,11 @@ select {
 .max-w-xl {
   max-width: 36rem;
 }
-.max-w-7xl {
-  max-width: 80rem;
-}
 .flex-1 {
   flex: 1 1 0%;
 }
 .flex-none {
   flex: none;
-}
-.shrink-0 {
-  flex-shrink: 0;
 }
 .origin-top-left {
   transform-origin: top left;
@@ -984,16 +962,6 @@ select {
   margin-right: calc(2.5rem * var(--tw-space-x-reverse));
   margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
-.space-x-8 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(2rem * var(--tw-space-x-reverse));
-  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-y-1 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1034,9 +1002,6 @@ select {
 }
 .border-b-4 {
   border-bottom-width: 4px;
-}
-.border-b {
-  border-bottom-width: 1px;
 }
 .border-b-2 {
   border-bottom-width: 2px;
@@ -1121,9 +1086,6 @@ select {
 .p-10 {
   padding: 2.5rem;
 }
-.p-2 {
-  padding: 0.5rem;
-}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1168,10 +1130,6 @@ select {
   padding-left: 2rem;
   padding-right: 2rem;
 }
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -1207,12 +1165,6 @@ select {
 .pr-4 {
   padding-right: 1rem;
 }
-.pt-2 {
-  padding-top: 0.5rem;
-}
-.pb-1 {
-  padding-bottom: 0.25rem;
-}
 .text-left {
   text-align: left;
 }
@@ -1238,10 +1190,6 @@ select {
   font-size: 0.625rem;
   line-height: 1rem;
 }
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1249,6 +1197,10 @@ select {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .font-medium {
   font-weight: 500;
@@ -1326,9 +1278,9 @@ select {
   --tw-text-opacity: 1;
   color: rgb(236 69 79 / var(--tw-text-opacity));
 }
-.text-blue {
+.text-gray-100 {
   --tw-text-opacity: 1;
-  color: rgb(50 138 241 / var(--tw-text-opacity));
+  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 .text-gray-200 {
   --tw-text-opacity: 1;
@@ -1341,14 +1293,6 @@ select {
 .text-indigo-600 {
   --tw-text-opacity: 1;
   color: rgb(79 70 229 / var(--tw-text-opacity));
-}
-.text-gray-100 {
-  --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity));
-}
-.text-gray-800 {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 .text-indigo-700 {
   --tw-text-opacity: 1;
@@ -1656,10 +1600,6 @@ select {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
-.focus\:text-gray-500:focus {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
-}
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1737,21 +1677,8 @@ select {
 }
 @media (min-width: 640px) {
 
-  .sm\:-my-px {
-    margin-top: -1px;
-    margin-bottom: -1px;
-  }
-
   .sm\:ml-0 {
     margin-left: 0px;
-  }
-
-  .sm\:ml-10 {
-    margin-left: 2.5rem;
-  }
-
-  .sm\:ml-6 {
-    margin-left: 1.5rem;
   }
 
   .sm\:block {

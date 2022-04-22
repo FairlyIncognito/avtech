@@ -7,7 +7,7 @@
                     <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
                 </a>
 
-                <div class="hidden font-bold text-gray-900 md:block mt-6">{{ $idea->user->name }}</div>
+                <div class="hidden mt-6 font-bold text-gray-900 md:block">{{ $idea->user->name }}</div>
             </div>
             <div class="w-full mx-2 md:mx-4">
                 <h4 class="mt-2 text-xl font-semibold md:mt-0">
@@ -118,23 +118,7 @@
             <div class="px-3 py-2 font-semibold text-center bg-white rounded-xl">
                 
             </div>
-            {{-- @if ($hasVoted)
-                <button
-                    type="button"
-                    wire:click.prevent='vote'
-                    class="w-32 px-6 py-3 text-xs font-semibold text-white uppercase transition duration-150 ease-in border border-blue bg-blue h-11 rounded-xl hover:bg-blue-hover"
-                >
-                    <span>Voted</span>
-                </button>
-            @else
-                <button
-                    type="button"
-                    wire:click.prevent='vote'
-                    class="w-32 px-6 py-3 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400"
-                >
-                    <span>Vote</span>
-                </button>
-            @endif --}}
+            
         </div>
     </div> <!-- end buttons-container -->
 </div> <!-- end idea and buttons container -->

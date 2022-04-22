@@ -14,6 +14,5 @@
 
     <livewire:idea-show 
         :idea="$idea" 
-        :votesCount="$votesCount" 
     />
 </x-app-layout>

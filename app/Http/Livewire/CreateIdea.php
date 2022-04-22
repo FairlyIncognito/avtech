@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Idea;
-use App\Models\Vote;
 use Livewire\Component;
 use App\Models\Category;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,8 +35,6 @@ class CreateIdea extends Component
             'title' => $this->title,
             'description' => $this->description
         ]);
-        
-        $idea->vote(auth()->user());
 
         session()->flash('success_message', 'Idea was added succcessfully.');
         $this->reset();

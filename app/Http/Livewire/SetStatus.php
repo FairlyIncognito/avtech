@@ -27,10 +27,6 @@ class SetStatus extends Component
         $this->idea->status_id = $this->status;
         $this->idea->save();
 
-        if($this->notifyAllVoters) {
-            NotifyAllVoters::dispatch($this->idea);
-        }
-
         $this->emit('statusWasUpdated');
     }
 
