@@ -70,7 +70,7 @@ class IdeasIndex extends Component
                 ->when($this->filter && $this->filter === 'My Ideas', function ($query) {
                     return $query->where('user_id', auth()->id());
                 })
-                ->when(strlen($this->search) >= 3, function ($query) {
+                ->when(strlen(!empty($this->search)) >= 3, function ($query) {
                     return $query->where('title', 'like', '%' . $this->search. '%');
                 })
                 ->orderBy('id', 'desc')
