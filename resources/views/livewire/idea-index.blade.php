@@ -17,7 +17,7 @@
                     <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
                 </a>
 
-                <div class="hidden font-bold text-gray-900 md:block mt-6">{{ $idea->user->name }}</div>
+                <div class="hidden mt-6 font-bold text-gray-900 md:block">{{ $idea->user->name }}</div>
             </div>
         </div>
 
@@ -60,8 +60,19 @@
                             @keydown.escape.window="isOpen = false"
                             class="absolute right-0 py-3 font-semibold text-left bg-white w-44 shadow-dialog rounded-xl md:ml-8 top-8 md:top-6 md:left-0"
                         >
-                            <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Marker Spam</a></li>
-                            <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Slet Post</a></li>
+                            <li>
+                                <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
+                                >
+                                    {{ __('Mark as Spam') }}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
+                                >
+                                    {{ __('Delete Post') }}
+                                </a>
+                            </li>
                         </ul>
                     </button>
                 </div>

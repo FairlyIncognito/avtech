@@ -29,8 +29,8 @@ class AuthServiceProvider extends ServiceProvider
         // This works in the app by using gate-related functions like auth()->user->can() and @can()
         // NOTE: Gate::before rules need to return null rather than false, else it will interfere with normal policy operation. 
         // https://spatie.be/docs/laravel-permission/v5/basic-usage/super-admin
-        Gate::before(function ($user, $ability) {
-            return $user->hasRole('Super Admin') ? true : null;
+        Gate::after(function ($user, $ability) {
+            return $user->hasRole('SuperAdmin');
         });
     }
 }

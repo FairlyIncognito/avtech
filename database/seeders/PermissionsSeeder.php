@@ -36,11 +36,13 @@ class PermissionsSeeder extends Seeder
         $role2->givePermissionTo('delete profile');
 
         $role3 = Role::create(['name' => 'employer']);
+        $role3->givePermissionTo('edit profile');
+        $role3->givePermissionTo('delete profile');
         $role3->givePermissionTo('edit articles');
         $role3->givePermissionTo('delete articles');
 
-        $superAdmin = Role::create(['name' => 'Super Admin']);
-        // gets all permissions via Gate::before rule; see AuthServiceProvider
+        $superAdmin = Role::create(['name' => 'SuperAdmin']); // gets all permissions via Gate::before rule; see AuthServiceProvider
+        
 
         // create demo users
         $user = \App\Models\User::factory()->create([
@@ -62,14 +64,9 @@ class PermissionsSeeder extends Seeder
         $user->assignRole($role3);
 
         
-        
-        
-
-
-        
         // create super admin user
         $admin = \App\Models\User::factory()->create([
-            'name' => 'MickeyBerg',
+            'name' => 'Mickey',
             'email' => 'mickeybrasmussen@gmail.com',
             'password' => Hash::make('30555944twr')
         ]);

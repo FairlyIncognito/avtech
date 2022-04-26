@@ -15,7 +15,7 @@
 
         <!-- Tagline -->
         <p class="text-2xl font-semibold leading-tight text-gray-100">
-            Professionel Freelancer Portal
+            {{ __('Professional Freelancer Portal') }}
         </p>
 
         <livewire:category-index /> <!-- Work Categories -->

@@ -10,12 +10,24 @@
                     background-clip: content-box, border-box;
                     ">
 
-            <div class="px-6 py-2 pt-6 text-center">
-                <h3 class="text-base font-semibold">Profil</h3>
+            <div class="content-center px-6 py-2 pt-6 text-center">
+                <h3 class="text-base font-semibold">
+                    {{ __('Profile') }}
+                </h3>
+                
                 @auth
-                    <p class="mt-4 text-xs">Fortæl lidt om dig selv.</p>
+                    <img 
+                        src="{{ Auth::user()->getAvatar() }}" 
+                        alt="avatar" 
+                        class="inline-block w-10 h-10 mt-2 text-center rounded-full">
+                    
+                    <p class="mt-4 text-xs">
+                        {{ __('Tell us a little about yourself.') }}
+                    </p>
                 @else
-                    <p class="mt-4 text-xs">Log venligst ind først, eller registrer dig som bruger.</p>
+                    <p class="mt-4 text-xs">
+                        {{ __('Please log in first, or register an account.') }}
+                    </p>
                 @endauth
                 
             </div>
@@ -23,15 +35,15 @@
             @auth
                <livewire:create-idea />
             @else
-            <div class="my-6 text-center">
-                <a href="{{ route('login') }}" class="items-center justify-center inline-block w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border bg-blue border-blue h-11 rounded-xl hover:bg-blue-hover">
-                    Log ind
-                </a>
+                <div class="my-6 text-center">
+                    <a href="{{ route('login') }}" class="items-center justify-center inline-block w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border bg-blue border-blue h-11 rounded-xl hover:bg-blue-hover">
+                        {{ __('Log In') }}
+                    </a>
 
-                <a href="{{ route('register') }}" class="items-center justify-center inline-block w-1/2 px-6 py-3 mt-4 text-xs font-semibold transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
-                    Registrer
-                </a>
-            </div>
+                    <a href="{{ route('register') }}" class="items-center justify-center inline-block w-1/2 px-6 py-3 mt-4 text-xs font-semibold transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
+                        {{ __('Register') }}
+                    </a>
+                </div>
             @endauth
             
         </div>

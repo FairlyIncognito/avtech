@@ -5,7 +5,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'All') border-blue text-gray-900 @endif"
             >
-                Alle ({{ $statusCount['all_statuses'] }})
+               {{ __('All') }} ({{ $statusCount['all_statuses'] }})
             </a>
         </li>
 
@@ -14,7 +14,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'Open') border-blue text-gray-900 @endif"
             >
-                Åbne ({{ $statusCount['open'] }})
+                {{ __('Open') }} ({{ $statusCount['open'] }})
             </a>
         </li>
         
@@ -23,7 +23,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'Considering') border-blue text-gray-900 @endif"
             >
-                Overvejer ({{ $statusCount['considering'] }})
+                {{ __('Considering') }} ({{ $statusCount['considering'] }})
             </a>
         </li>
         
@@ -32,7 +32,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'In Progress') border-blue text-gray-900 @endif"
             >
-                Igangværende ({{ $statusCount['in_progress'] }})
+                {{ __('In Progress') }} ({{ $statusCount['in_progress'] }})
             </a>
         </li>
     </ul>
@@ -43,7 +43,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'Implemented') border-blue text-gray-900 @endif"
             >
-                Implementeret ({{ $statusCount['implemented'] }})
+                {{ __('Implemented') }} ({{ $statusCount['implemented'] }})
             </a>
         </li>
 
@@ -52,7 +52,7 @@
                 class="pb-3 transition duration-150 ease-in border-b-4 hover:border-blue 
                 @if($status === 'Closed') border-blue text-gray-900 @endif"
             >
-                Lukket ({{ $statusCount['closed'] }})
+                {{ __('Closed') }} ({{ $statusCount['closed'] }})
             </a>
         </li>
     </ul>

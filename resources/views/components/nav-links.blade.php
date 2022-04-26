@@ -4,15 +4,17 @@
 
             <!-- If logged in -->
             @auth
-                <a href="{{ route('idea.create') }}">
-                    Profil
-                </a>
+                @can('edit profile')
+                    <a href="{{ route('idea.create') }}">
+                        {{ __('Profile') }}
+                    </a>
+                @endcan
 
                 <!-- Logout form -->
                 <form method="POST" action="{{ route('logout') }}" class="inline-block ml-4 text-sm">
                     @csrf
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
-                        Log ud
+                        {{ __('Log Out') }}
                     </a>
                 </form>
 
@@ -20,12 +22,12 @@
             @else
                 <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
                     <a href="{{ route('login') }}" class="text-gray-100 underline text-md">
-                        Log ind
+                        {{ __('Log In') }}
                     </a>
                 
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="ml-4 text-gray-100 underline text-md">
-                            Registrer
+                            {{ __('Register') }}
                         </a>
                     @endif
                 </div>
@@ -35,9 +37,9 @@
     @endif
 
     @auth
-        <a href="{{ route('idea.create') }}">
-            <img src="https://www.gravatar.com/avatar/sdfdhft6asdasdsada743523?d=retro" alt="avatar" class="w-10 h-10 rounded-full">
-        </a>
+        
+        <img src="{{ Auth::user()->getAvatar() }}" alt="avatar" class="w-10 h-10 rounded-full">
+        
     @endauth          
 </div>
 

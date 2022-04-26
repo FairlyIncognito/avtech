@@ -7,12 +7,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             <span class="ml-2">
-                Tilbage <span class="text-gray-300">(inkl. kategori og filtre)</span>
+                {{ __('Go back') }} <span class="text-gray-300">({{ __('incl. category & filters') }})</span>
             </span>
         </a>
     </div>
 
     <livewire:idea-show 
-        :idea="$idea"
+        :idea="$idea" 
     />
 </x-app-layout>
