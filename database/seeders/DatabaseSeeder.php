@@ -18,27 +18,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->create([
-            'name' => 'MickeyBerg',
-            'email' => 'mickeybrasmussen@gmail.com',
-            'password' => Hash::make('30555944twr')
-        ]);
+        User::factory(20)->create();
 
-        User::factory(19)->create();
-
-        Category::factory()->create(['name' => 'AV']);
-        Category::factory()->create(['name' => 'Chauffør']);
-        Category::factory()->create(['name' => 'Crew']);
-        Category::factory()->create(['name' => 'Lyd']);
-        Category::factory()->create(['name' => 'Lys']);
-        Category::factory()->create(['name' => 'Scene']);
-
-        Status::factory()->create(['name' => 'Åben']);
-        Status::factory()->create(['name' => 'Overvejer']);
-        Status::factory()->create(['name' => 'Igangværende']);
-        Status::factory()->create(['name' => 'Implementeret']);
-        Status::factory()->create(['name' => 'Lukket']);
-
-        Idea::factory(100)->existing()->create();
+        $this->call([
+           CategorySeeder::class,
+           StatusSeeder::class,
+           IdeaSeeder::class,
+           PermissionsSeeder::class,
+        ]);  
     }
 }

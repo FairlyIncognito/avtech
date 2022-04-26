@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -14,6 +14,11 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        Category::factory()->create(['name' => 'AV']);
+        Category::factory()->create(['name' => 'Chauffør']);
+        Category::factory()->create(['name' => 'Crew']);
+        Category::factory()->create(['name' => 'Lyd']);
+        Category::factory()->create(['name' => 'Lys']);
+        Category::factory()->create(['name' => 'Scene']);
     }
 }
