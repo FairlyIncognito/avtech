@@ -106,3 +106,22 @@
         <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
     </svg>
 @endif
+
+@if ($name === 'search' || $name === 'søg')
+    <svg 
+        class="" 
+        fill="none" 
+        viewBox="0 0 24 24" 
+        stroke="currentColor"
+        {{ $attributes(['class' => 'w-4 h-4 text-gray-700']) }}
+    >
+        <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="2" 
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+        />
+    </svg>
+@endif
+
+

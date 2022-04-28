@@ -34,30 +34,7 @@
                         </span>
                     </label>
                 </div>
-                <div>
-                    <label class="inline-flex items-center">
-                        <input wire:model="status" type="radio" class="bg-gray-200 border-none text-purple" name="status" value="2">
-                        <span class="ml-2">
-                            {{ __('Considering') }}
-                        </span>
-                    </label>
-                </div>
-                <div>
-                    <label class="inline-flex items-center">
-                        <input wire:model="status" type="radio" class="bg-gray-200 border-none text-yellow" name="status" value="3">
-                        <span class="ml-2">
-                            {{ __('In Progress') }}
-                        </span>
-                    </label>
-                </div>
-                <div>
-                    <label class="inline-flex items-center">
-                        <input wire:model="status" type="radio" class="bg-gray-200 border-none text-green" name="status" value="4">
-                        <span class="ml-2">
-                            {{ __('Implemented') }}
-                        </span>
-                    </label>
-                </div>
+                
                 <div>
                     <label class="inline-flex items-center">
                         <input wire:model="status" type="radio" class="bg-gray-200 border-none text-red" name="status" value="5">
