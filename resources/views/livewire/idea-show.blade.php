@@ -44,8 +44,19 @@
                                 @click.away="isOpen = false"
                                 @keydown.escape.window="isOpen = false"
                             >
-                                <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Marker Spam</a></li>
-                                <li><a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Slet Post</a></li>
+                                <li>
+                                    <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
+                                    >
+                                        {{ __('Mark as Spam') }}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
+                                    >
+                                        {{ __('Delete Post') }}
+                                    </a>
+                                </li>
                             </ul>
                         </button>
                     </div>
@@ -71,7 +82,7 @@
                     @click="isOpen = !isOpen"
                     class="flex items-center justify-center w-32 px-6 py-3 text-sm font-semibold text-white transition duration-150 ease-in border h-11 bg-blue rounded-xl border-blue hover:bg-blue-hover"
                 >
-                    Svar
+                    {{ __('Answer') }}
                 </button>
                 <div
                     class="absolute z-10 w-64 mt-2 text-sm font-semibold text-left bg-white md:w-104 shadow-dialog rounded-xl"
@@ -99,7 +110,7 @@
                                 <svg class="w-4 text-gray-600 transform -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                                 </svg>
-                                <span class="ml-1">Vedhæft</span>
+                                <span class="ml-1">{{ __('Attach') }}</span>
                             </button>
                         </div>
 
@@ -120,5 +131,6 @@
             </div>
             
         </div>
+        
     </div> <!-- end buttons-container -->
 </div> <!-- end idea and buttons container -->

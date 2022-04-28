@@ -48,6 +48,10 @@ class User extends Authenticatable
         return $this->hasMany(Idea::class);
     }
 
+    public function jobs() {
+        return $this->belongsToMany(Job::class);
+    }
+
     public function getAvatar() {
         return
             'https://www.gravatar.com/avatar/'
